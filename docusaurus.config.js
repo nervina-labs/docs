@@ -62,7 +62,7 @@ const config = {
             label: '标准',
           },
           {
-            href: 'api',
+            href: 'https://app.swaggerhub.com/apis/ShiningRay/NftSaasOpenAPI/0.0.1',
             label: 'API Reference',
             position: 'left'
           },
@@ -106,10 +106,6 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/facebook/docusaurus',
