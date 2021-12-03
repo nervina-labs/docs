@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Create a Document
+# NFT基本操作
 
 Documents are **groups of pages** connected through:
 
@@ -10,7 +10,7 @@ Documents are **groups of pages** connected through:
 - **previous/next navigation**
 - **versioning**
 
-## Create your first Doc
+## 设计秘宝
 
 Create a markdown file at `docs/hello.md`:
 
@@ -22,7 +22,7 @@ This is my **first Docusaurus document**!
 
 A new document is now available at `http://localhost:3000/docs/hello`.
 
-## Configure the Sidebar
+## 铸造秘宝
 
 Docusaurus automatically **creates a sidebar** from the `docs` folder.
 
