@@ -2,4 +2,4 @@
 sidebar_position: 2
 ---
 
-# mNFT
+# mNFT 标准
