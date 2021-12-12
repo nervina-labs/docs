@@ -62,7 +62,7 @@ const config = {
             label: '标准',
           },
           {
-            href: 'https://app.swaggerhub.com/apis/ShiningRay/NftSaasOpenAPI/0.0.1',
+            href: 'https://api.nervina.cn',
             label: 'API Reference',
             position: 'left'
           },
