@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '秘宝开放平台',
+  title: '秘宝文档中心',
   tagline: '秘宝——',
   url: 'https://open.mibao.net',
   baseUrl: '/',
@@ -43,77 +43,37 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: '秘宝开放平台',
+        title: '秘宝文档中心',
         logo: {
-          alt: '秘宝开放平台',
+          alt: '秘宝文档中心',
           src: 'img/logo.svg',
         },
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'about/what-is-new',
             position: 'left',
-            label: '指南',
+            label: 'Docs',
           },
           {
-            type: 'doc',
-            docId: 'standards/overview',
-            position: 'left',
-            label: '标准',
-          },
-          {
-            href: 'https://api.nervina.cn',
-            label: 'API Reference',
-            position: 'left'
-          },
-          // { to: '/blog', label: 'Blog', position: 'left' },
-          {
-            href: 'https://github.com/nervina-labs/docs',
-            label: 'GitHub',
-            position: 'right',
-          },
+          label: "Translate",
+          position: 'right',
+          items: [
+            {
+              label: '中文',
+              to: 'docs/about/what-is-new',
+            },
+            {
+              label: 'English',
+              to: 'docs/docs_en/about/what-is-new',
+            },
+          ],
+        },
         ],
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Nervina Labs`,
       },
       prism: {
         theme: lightCodeTheme,
