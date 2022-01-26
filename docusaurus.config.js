@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
   organizationName: 'nervina-labs', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
 
@@ -46,7 +46,7 @@ const config = {
         title: '秘宝文档中心',
         logo: {
           alt: '秘宝文档中心',
-          src: 'img/logo.svg',
+          src: 'img/logo.png',
         },
         items: [
           {
