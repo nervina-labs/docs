@@ -7,21 +7,21 @@ module.exports = {
         "about/what-is-new",
         "about/overview",
         "about/concepts",
-        "about/solution"
+        // "about/solution"
       ],
     },
-    {
-      type: 'category',
-      label: '使用文档',
-      items: [
-        "usage/how-to-create",
-        "usage/how-to-distribute",
-        "usage/how-to-transfer",
-        "usage/addresses-collection",
-        "usage/redeem",
-        "usage/red-packet",
-      ],
-    },
+    // {
+    //   type: 'category',
+    //   label: '使用文档',
+    //   items: [
+    //     "usage/how-to-create",
+    //     "usage/how-to-distribute",
+    //     "usage/how-to-transfer",
+    //     "usage/addresses-collection",
+    //     "usage/redeem",
+    //     "usage/red-packet",
+    //   ],
+    // },
     {
       type: 'category',
       label: '开发者文档',
@@ -42,15 +42,15 @@ module.exports = {
         "develop/multi-issuers",
       ],
     },
-    {
-      type: 'category',
-      label: '深入理解 NFT 合约',
-      items: [
-        "contract/cota-nft",
-        "contract/m-nft",
-      ],
-    },
-    "faq"
+    // {
+    //   type: 'category',
+    //   label: '深入理解 NFT 合约',
+    //   items: [
+    //     "contract/cota-nft",
+    //     "contract/m-nft",
+    //   ],
+    // },
+    // "faq"
   ],
 
   docs_en: [
@@ -61,49 +61,49 @@ module.exports = {
         "docs_en/about/what-is-new",
         "docs_en/about/overview",
         "docs_en/about/concepts",
-        "docs_en/about/solution"
+        // "docs_en/about/solution"
       ],
     },
-    {
-      type: 'category',
-      label: 'Usage',
-      items: [
-        "docs_en/usage/how-to-create",
-        "docs_en/usage/how-to-distribute",
-        "docs_en/usage/how-to-transfer",
-        "docs_en/usage/addresses-collection",
-        "docs_en/usage/redeem",
-        "docs_en/usage/red-packet",
-      ],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Usage',
+    //   items: [
+    //     "docs_en/usage/how-to-create",
+    //     "docs_en/usage/how-to-distribute",
+    //     "docs_en/usage/how-to-transfer",
+    //     "docs_en/usage/addresses-collection",
+    //     "docs_en/usage/redeem",
+    //     "docs_en/usage/red-packet",
+    //   ],
+    // },
     {
       type: 'category',
       label: 'Development',
       items: [
-        "develop/concepts",
-        "develop/prepare",
-        "develop/signature",
+        "docs_en/develop/concepts",
+        "docs_en/develop/prepare",
+        "docs_en/develop/signature",
         {
           type: 'category',
           label: 'Best Practice',
           items: [
-              "develop/best-practice/token-class",
-              "develop/best-practice/token",
-              "develop/best-practice/holder",
-              "develop/best-practice/transaction"
+              "docs_en/develop/best-practice/token-class",
+              "docs_en/develop/best-practice/token",
+              "docs_en/develop/best-practice/holder",
+              "docs_en/develop/best-practice/transaction"
           ]
         },
-        "develop/multi-issuers",
+        "docs_en/develop/multi-issuers",
       ],
     },
-    {
-      type: 'category',
-      label: 'Contract',
-      items: [
-        "docs_en/contract/cota-nft",
-        "docs_en/contract/m-nft",
-      ],
-    },
-    "docs_en/faq"
+    // {
+    //   type: 'category',
+    //   label: 'Contract',
+    //   items: [
+    //     "docs_en/contract/cota-nft",
+    //     "docs_en/contract/m-nft",
+    //   ],
+    // },
+    // "docs_en/faq"
   ],
 };

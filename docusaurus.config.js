@@ -55,20 +55,20 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
-          {
-          label: "Translate",
-          position: 'right',
-          items: [
-            {
-              label: '中文',
-              to: 'docs/about/what-is-new',
-            },
-            {
-              label: 'English',
-              to: 'docs/docs_en/about/what-is-new',
-            },
-          ],
-        },
+        //   {
+        //   label: "Translate",
+        //   position: 'right',
+        //   items: [
+        //     {
+        //       label: '中文',
+        //       to: 'docs/about/what-is-new',
+        //     },
+        //     {
+        //       label: 'English',
+        //       to: 'docs/docs_en/about/what-is-new',
+        //     },
+        //   ],
+        // },
         ],
       },
       footer: {
