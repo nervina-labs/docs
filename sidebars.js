@@ -36,10 +36,10 @@ module.exports = {
               "develop/best-practice/token-class",
               "develop/best-practice/token",
               "develop/best-practice/holder",
-              "develop/best-practice/transaction"
+              "develop/best-practice/transaction",
+              "develop/best-practice/multi-issuers",
           ]
         },
-        "develop/multi-issuers",
       ],
     },
     // {
