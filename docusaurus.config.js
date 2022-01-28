@@ -15,7 +15,19 @@ const config = {
   favicon: 'img/favicon.png',
   organizationName: 'nervina-labs', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
+  i18n: {
+    defaultLocale: 'zh',
+    locales: ['en', 'zh'],
+    localeConfigs: {
+      en: {
 
+      },
+      // You can omit a locale (e.g. fr) if you don't need to override the defaults
+      zh: {
+
+      },
+    },
+  },
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -55,20 +67,20 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
-        //   {
-        //   label: "Translate",
-        //   position: 'right',
-        //   items: [
-        //     {
-        //       label: '中文',
-        //       to: 'docs/about/what-is-new',
-        //     },
-        //     {
-        //       label: 'English',
-        //       to: 'docs/docs_en/about/what-is-new',
-        //     },
-        //   ],
-        // },
+          //   {
+          //   label: "Translate",
+          //   position: 'right',
+          //   items: [
+          //     {
+          //       label: '中文',
+          //       to: 'docs/about/what-is-new',
+          //     },
+          //     {
+          //       label: 'English',
+          //       to: 'docs/docs_en/about/what-is-new',
+          //     },
+          //   ],
+          // },
         ],
       },
       footer: {

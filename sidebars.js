@@ -33,11 +33,11 @@ module.exports = {
           type: 'category',
           label: '最佳实践',
           items: [
-              "develop/best-practice/token-class",
-              "develop/best-practice/token",
-              "develop/best-practice/holder",
-              "develop/best-practice/transaction",
-              "develop/best-practice/multi-issuers",
+            "develop/best-practice/token-class",
+            "develop/best-practice/token",
+            "develop/best-practice/holder",
+            "develop/best-practice/transaction",
+            "develop/best-practice/multi-issuers",
           ]
         },
       ],
@@ -51,51 +51,7 @@ module.exports = {
     //   ],
     // },
     // "faq"
-  ],
 
-  docs_en: [
-    {
-      type: 'category',
-      label: 'About',
-      items: [
-        "docs_en/about/what-is-new",
-        "docs_en/about/overview",
-        "docs_en/about/concepts",
-        // "docs_en/about/solution"
-      ],
-    },
-    // {
-    //   type: 'category',
-    //   label: 'Usage',
-    //   items: [
-    //     "docs_en/usage/how-to-create",
-    //     "docs_en/usage/how-to-distribute",
-    //     "docs_en/usage/how-to-transfer",
-    //     "docs_en/usage/addresses-collection",
-    //     "docs_en/usage/redeem",
-    //     "docs_en/usage/red-packet",
-    //   ],
-    // },
-    {
-      type: 'category',
-      label: 'Development',
-      items: [
-        "docs_en/develop/concepts",
-        "docs_en/develop/prepare",
-        "docs_en/develop/signature",
-        {
-          type: 'category',
-          label: 'Best Practice',
-          items: [
-              "docs_en/develop/best-practice/token-class",
-              "docs_en/develop/best-practice/token",
-              "docs_en/develop/best-practice/holder",
-              "docs_en/develop/best-practice/transaction"
-          ]
-        },
-        "docs_en/develop/multi-issuers",
-      ],
-    },
     // {
     //   type: 'category',
     //   label: 'Contract',
