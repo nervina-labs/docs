@@ -22,6 +22,7 @@ module.exports = {
     //     "usage/red-packet",
     //   ],
     // },
+
     {
       type: 'category',
       label: '开发者文档',
@@ -46,7 +47,13 @@ module.exports = {
             },
           ]
         },
-
+        {
+          type: 'category',
+          label: 'CoTA',
+          items: [
+            "develop/cota/index",
+          ]
+        },
       ],
     },
     // {
