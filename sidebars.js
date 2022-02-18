@@ -27,19 +27,26 @@ module.exports = {
       label: '开发者文档',
       items: [
         "develop/concepts",
-        "develop/prepare",
-        "develop/signature",
         {
           type: 'category',
-          label: '最佳实践',
+          label: 'OpenAPI',
           items: [
-            "develop/best-practice/token-class",
-            "develop/best-practice/token",
-            "develop/best-practice/holder",
-            "develop/best-practice/transaction",
-            "develop/best-practice/multi-issuers",
+            "develop/openapi/prepare",
+            "develop/openapi/signature",
+            {
+              type: 'category',
+              label: '最佳实践',
+              items: [
+                "develop/openapi/best-practice/token-class",
+                "develop/openapi/best-practice/token",
+                "develop/openapi/best-practice/holder",
+                "develop/openapi/best-practice/transaction",
+                "develop/openapi/best-practice/multi-issuers",
+              ]
+            },
           ]
         },
+
       ],
     },
     // {
