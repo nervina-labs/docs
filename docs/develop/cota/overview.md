@@ -35,16 +35,15 @@ CoTA 协议定义了四种 NFT 相关的叶子类型（Key 和 Value 的数据�
 
 ### CoTA Cell 的数据结构
 
-```
+```yaml
 # CoTA cell data structure
 data:
-    version: byte              # must be 0
-    smt_root: byte32
+  version: byte # must be 0
+  smt_root: byte32
 type:
-    code_hash: cota_type
-    args: lock_hash[0..20]     # must match self.lock_script
-lock:
-    --
+  code_hash: cota_type
+  args: lock_hash[0..20] # must match self.lock_script
+lock: --
 ```
 
 CoTA Cell Data 只有两个字段，version 和 smt_root，version 默认为 0，smt_root 为每次更新 merkel tree 叶子节点后最新的 root hash，换言之 live cell 只存储 smt root 作为全网共识的数据，而叶子节点信息则存储在 witness 中，witness 信息作为非共识性数据，会保留在 CKB 全节点数据中。这样可以最大限度地减少链上占用空间，降低用户的使用成本，相应的代价就是需要一个链外的 Aggregator 不断回溯链上交易恢复出完整的 merkel tree，并将叶子节点数据存储至数据库。如果 CoTA Cell 要做更新数据或者转让 NFT 等操作，都需要借助 Aggregator 帮忙生成最新的 smt root，以及链上合约验证需要的 smt proof。
@@ -57,14 +56,11 @@ CoTA Cell Data 只有两个字段，version 和 smt_root，version 默认为 0�
 
 ```
 # Define transaction data structure
-inputs:
-  cota_cell
+inputs: cota_cell
 
-outputs:
-  cota_cell
+outputs: cota_cell
 
-outputs_data:
-  version + smt_root
+outputs_data: version + smt_root
 
 witnesses:
   witness_args.input_type = action_type + DefineCotaNFTEntries
@@ -73,7 +69,7 @@ witnesses:
 
 Define 交易本身并不复杂，只是更新了 cell data 中的 `smt_root`，主要信息存储在 witness 中，`action_type` 是一个 `uint8` 类型的数据，主要用来区分交易行为（除了发行，还有转让、更新 NFT 信息等），`DefineCotaNFTEntries` 存放了 Define 需要的数据，`nft_metadata` 信息存放该系列 NFT 的其他信息，例如名称、简介、ImageUrl 等，`nft_metadata` 遵从 [CKB Transaction Metadata Standard Proposal](https://talk.nervos.org/t/ckb-transaction-metadata-standard-proposal/6332)，详情参考下文的 Metadata 示例。我们重点来看 `DefineCotaNFTEntries`
 
-```mol
+```yaml
 # Define witness data structure
 array CotaId [byte; 20];
 
@@ -106,34 +102,28 @@ table DefineCotaNFTEntries {
 
 为了保证安全和防止潜在的攻击，CoTA Cell 必须与用户地址一一对应，换言之，每一个地址有且只能有一个 CoTA Cell，为此还需要提供一个 Global Registry Cell 来记录 CoTA Cell 的生成情况，简单说就是 Global Registry Cell 通过 SMT 来记录已注册的地址，每次注册新的 CoTA Cell 时，都需要先在 Global Registry Cell 检查是否已经存在，如果不存在则允许注册，否则不允许注册。
 
-```
-  # global_cota_registry_cell data structure
-  data:
-    version: byte     // must be 0
-    registry_smt_root: optional<byte32>
-  type:
-    code_hash: global_cota_registry_type
-    args: type_id
-  lock:
-    always_success lock
+```yaml
+# global_cota_registry_cell data structure
+data:
+  version: byte     // must be 0
+  registry_smt_root: optional<byte32>
+type:
+  code_hash: global_cota_registry_type
+  args: type_id
+lock: always_success lock
 
-
-  # cota cell registry tx data structure
-  inputs:
-    registry_cell
-    normal_cell
-  outputs:
-    registry_cell
-    cota_cell1
-    ...
-    cota_cellN
-  outputs_data:
-    version + registry_smt_root
-    version
-    ...
-    version
-  witnesses:
-    witness_args.input_type = CotaNFTRegistryEntries
+# cota cell registry tx data structure
+inputs: registry_cell
+  normal_cell
+outputs: registry_cell
+  cota_cell1
+  ...
+  cota_cellN
+outputs_data: version + registry_smt_root
+  version
+  ...
+  version
+witnesses: witness_args.input_type = CotaNFTRegistryEntries
 ```
 
 详细的 registry 数据结构和合约规则，可以参考[CoTA 数据结构和合约规则](./script-rule.md)
@@ -152,38 +142,38 @@ table DefineCotaNFTEntries {
 
 #### Issuer Metadata
 
-```
+```json
 {
-   "id":"CTMeta",
-   "ver":"1.0",
-   "metadata":{
-      "target":"output#0",
-      "type":"issuer",
-      "data":{
-         "version":"0",
-         "name":"Alice",
-         "description": "Alice profile",
-         "avatar": "https://alice-avater.jpg",
-      }
-   }
+  "id": "CTMeta",
+  "ver": "1.0",
+  "metadata": {
+    "target": "output#0",
+    "type": "issuer",
+    "data": {
+      "version": "0",
+      "name": "Alice",
+      "description": "Alice profile",
+      "avatar": "https://alice-avater.jpg"
+    }
+  }
 }
 ```
 
 #### Class Metadata
 
-```
+```json
 {
-   "id":"CTMeta",
-   "ver":"1.0",
-   "metadata":{
-      "target":"output#0",
-      "type":"cota",
-      "data":{
-         "version":"0",
-         "cota_id":"0x77e3571ee1b95ad98c3eeb09b237f6ba9e393a9e",
-         "name":"HappyDog",
-         "image":"https://i.loli.net/2021/04/28/ZCQPoxztsVHdNA9.jpg",
-      }
-   }
+  "id": "CTMeta",
+  "ver": "1.0",
+  "metadata": {
+    "target": "output#0",
+    "type": "cota",
+    "data": {
+      "version": "0",
+      "cota_id": "0x77e3571ee1b95ad98c3eeb09b237f6ba9e393a9e",
+      "name": "HappyDog",
+      "image": "https://i.loli.net/2021/04/28/ZCQPoxztsVHdNA9.jpg"
+    }
+  }
 }
 ```

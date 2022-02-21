@@ -5,7 +5,7 @@ label: CoTA
 
 ### Witness 公共数据结构
 
-```mol
+```yaml
 // common.mol
 array Byte32 [byte; 32];
 array Uint16 [byte; 2];   // 大端数据
@@ -99,7 +99,7 @@ action = match action_type {
 
 ### CoTA cell 数据结构
 
-```jsx
+```yaml
 # CoTA cell data structure
 data:
     version: byte     // must be 0
@@ -123,19 +123,18 @@ CoTA cell 规则：
 
 CoTA cell 的生成需要 `global_cota_registry_cell` 的参与，目的是保证每个地址只能有一个 CoTA Cell。
 
-```mol
+```yaml
 # global_cota_registry_cell data structure
 data:
-    version: byte     // must be 0
-    registry_smt_root: optional<byte32>
+  version: byte     // must be 0
+  registry_smt_root: optional<byte32>
 type:
-    code_hash: global_cota_registry_type
-    args: type_id
-lock:
-    always_success lock
+  code_hash: global_cota_registry_type
+  args: type_id
+lock: always_success lock
 ```
 
-```mol
+```yaml
 # global_cota_registry_cell creation tx structure
 inputs:
     normal_cell
@@ -144,7 +143,7 @@ outputs:
 outputs_data:
     version
 witnesses:
-    any
+    --
 
 # global_cota_registry_cell update tx structure
 inputs:
@@ -173,7 +172,7 @@ witnesses:
 
 **witness 数据结构**
 
-```jsx
+```yaml
 // registry.mol
 // value: 0xFF...FF(registed), 0x00...00(unregisted)
 import common;
@@ -193,19 +192,23 @@ table CotaNFTRegistryEntries {
 
 ### CoTA NFT 设计
 
-```jsx
-inputs: cota_cell;
+```
+inputs:
+  cota_cell;
 
-outputs: cota_cell;
+outputs:
+  cota_cell;
 
-outputs_data: version + smt_root;
+outputs_data:
+  version + smt_root;
 
-witnesses: witness_args.input_type = action_type + DefineCotaNFTEntries;
+witnesses:
+  witness_args.input_type = action_type + DefineCotaNFTEntries;
 ```
 
 **witness 数据结构**
 
-```jsx
+```yaml
 // define.mol
 import common;
 
@@ -230,19 +233,23 @@ table DefineCotaNFTEntries {
 
 ### CoTA NFT 分发
 
-```jsx
-inputs: cota_cell;
+```
+inputs:
+  cota_cell;
 
-outputs: cota_cell;
+outputs:
+  cota_cell;
 
-outputs_data: version + smt_root;
+outputs_data:
+  version + smt_root;
 
-witnesses: witness_args.input_type = action_type + MintCotaNFTEntries;
+witnesses:
+  witness_args.input_type = action_type + MintCotaNFTEntries;
 ```
 
 **witness 数据结构**
 
-```jsx
+```yaml
 //mint.mol
 import common;
 
@@ -276,19 +283,23 @@ table MintCotaNFTEntries {
 
 ### CoTA NFT 转让之 withdraw
 
-```jsx
-inputs: sender_cota_cell;
+```
+inputs:
+  sender_cota_cell;
 
-outputs: sender_cota_cell;
+outputs:
+  sender_cota_cell;
 
-outputs_data: version + smt_root;
+outputs_data:
+  version + smt_root;
 
-witnesses: witness_args.input_type = action_type + WithdrawalCotaNFTEntries;
+witnesses:
+  witness_args.input_type = action_type + WithdrawalCotaNFTEntries;
 ```
 
 **witness 数据结构**
 
-```jsx
+```yaml
 // transfer.mol
 import common;
 
@@ -319,21 +330,26 @@ table WithdrawalCotaNFTEntries {
 
 ### CoTA NFT 转让之 claim
 
-```jsx
-cell_deps: sender_cota_cell;
+```
+cell_deps:
+  sender_cota_cell;
 
-inputs: receiver_cota_cell;
+inputs:
+  receiver_cota_cell;
 
-outputs: receiver_cota_cell;
+outputs:
+  receiver_cota_cell;
 
-outputs_data: version + smt_root;
+outputs_data:
+  version + smt_root;
 
-witnesses: witness_args.input_type = action_type + ClaimCotaNFTEntries;
+witnesses:
+  witness_args.input_type = action_type + ClaimCotaNFTEntries;
 ```
 
 **witness 数据结构**
 
-```jsx
+```yaml
 // transfer.mol
 import common;
 
@@ -368,21 +384,26 @@ table ClaimCotaNFTEntries {
 
 ### CoTA NFT 转让 transfer (claim & withdraw)
 
-```jsx
-cell_deps: sender_cota_cell;
+```
+cell_deps:
+  sender_cota_cell;
 
-inputs: receiver_cota_cell;
+inputs:
+  receiver_cota_cell;
 
-outputs: receiver_cota_cell;
+outputs:
+  receiver_cota_cell;
 
-outputs_data: version + smt_root;
+outputs_data:
+  version + smt_root;
 
-witnesses: witness_args.input_type = action_type + TransferCotaNFTEntries;
+witnesses:
+  witness_args.input_type = action_type + TransferCotaNFTEntries;
 ```
 
 **witness 数据结构**
 
-```jsx
+```yaml
 // transfer.mol
 import common;
 
@@ -417,19 +438,23 @@ table TransferCotaNFTEntries {
 
 ### CoTA NFT 更新信息
 
-```jsx
-inputs: cota_cell;
+```
+inputs:
+  cota_cell;
 
-outputs: cota_cell;
+outputs:
+  cota_cell;
 
-outputs_data: version + smt_root;
+outputs_data:
+  version + smt_root;
 
-witnesses: witness_args.input_type = action_type + UpdateCotaNFTEntries;
+witnesses:
+  witness_args.input_type = action_type + UpdateCotaNFTEntries;
 ```
 
 **witness 数据结构**
 
-```jsx
+```yaml
 // update.mol
 import common;
 
