@@ -1,8 +1,8 @@
 module.exports = {
   docs: [
     {
-      type: 'category',
-      label: '介绍',
+      type: "category",
+      label: "介绍",
       items: [
         "about/what-is-new",
         "about/overview",
@@ -24,35 +24,47 @@ module.exports = {
     // },
 
     {
-      type: 'category',
-      label: '开发者文档',
+      type: "category",
+      label: "开发者文档",
       items: [
         "develop/concepts",
         {
-          type: 'category',
-          label: 'OpenAPI',
+          type: "category",
+          label: "OpenAPI",
           items: [
             "develop/openapi/prepare",
             "develop/openapi/signature",
             {
-              type: 'category',
-              label: '最佳实践',
+              type: "category",
+              label: "最佳实践",
               items: [
                 "develop/openapi/best-practice/token-class",
                 "develop/openapi/best-practice/token",
                 "develop/openapi/best-practice/holder",
                 "develop/openapi/best-practice/transaction",
                 "develop/openapi/best-practice/multi-issuers",
-              ]
+              ],
             },
-          ]
+          ],
         },
         {
-          type: 'category',
-          label: 'CoTA',
+          type: "category",
+          label: "CoTA",
           items: [
-            "develop/cota/index",
-          ]
+            "develop/cota/overview",
+            "develop/cota/design",
+            "develop/cota/script-rule",
+            {
+              type: "category",
+              label: "Metadata",
+              items: ["develop/cota/metadata/issuer-meta", "develop/cota/metadata/class-meta"],
+            },
+            {
+              type: "category",
+              label: "Aggregator",
+              items: ["develop/cota/aggregator/cota", "develop/cota/aggregator/registry"],
+            },
+          ],
         },
       ],
     },
