@@ -144,6 +144,10 @@ table DefineCotaNFTEntries {
 
 考虑到链上数据解析和存储与计算并构造 Witness 需要的数据相对比较独立，因此 [CoTA Syncer](https://github.com/nervina-labs/cota-nft-entries-syncer) 负责 CoTA 和 Registry 相关数据的同步、解析和存储，[CoTA Registry Aggregator](https://github.com/nervina-labs/cota-registry-aggregator) 提供 CoTA 注册相关的数据的计算，同时对外提供注册 RPC 服务，[CoTA Aggregator](https://github.com/nervina-labs/cota-aggregator) 提供 CoTA 交易相关的数据的计算，同时对外提供生成 SMT Proof 相关 RPC 服务以及查询 CoTA NFT 相关的 RPC。具体的 Aggregator RPC 接口文档请参考 [CoTA Aggregator RPC](./aggregator/cota.md) 和 [CoTA Registry Aggregator RPC](./aggregator/registry.md)。
 
+### SDK
+
+为了方便第三发开发者借助 Aggregator 完成与 CoTA 合约交互，以及查询链上用户发行和持有 NFT 信息，我们还提供了 [JS SDK](https://github.com/nervina-labs/cota-sdk-js)
+
 ### Metadata 示例
 
 #### Issuer Metadata
