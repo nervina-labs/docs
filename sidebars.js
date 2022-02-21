@@ -56,13 +56,13 @@ module.exports = {
             "develop/cota/script-rule",
             {
               type: "category",
-              label: "Metadata",
-              items: ["develop/cota/metadata/issuer-meta", "develop/cota/metadata/class-meta"],
+              label: "Aggregator",
+              items: ["develop/cota/aggregator/cota", "develop/cota/aggregator/registry"],
             },
             {
               type: "category",
-              label: "Aggregator",
-              items: ["develop/cota/aggregator/cota", "develop/cota/aggregator/registry"],
+              label: "Metadata",
+              items: ["develop/cota/metadata/issuer-meta", "develop/cota/metadata/class-meta"],
             },
           ],
         },
