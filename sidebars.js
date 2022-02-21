@@ -54,6 +54,7 @@ module.exports = {
             "develop/cota/overview",
             "develop/cota/design",
             "develop/cota/script-rule",
+            "develop/cota/deployment",
             {
               type: "category",
               label: "Aggregator",
