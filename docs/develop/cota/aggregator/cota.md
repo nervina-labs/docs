@@ -5,7 +5,7 @@ label: CoTA
 
 > block_number 表示当前数据同步到的最新区块高度，建议以当 block_number 与 CKB 链上最新高度一致时返回的数据为准
 
-## JSONRPC 接口
+### JSONRPC 接口
 
 - Method: generate_define_cota_smt
 
@@ -302,3 +302,7 @@ label: CoTA
       block_number: number
     }
     ```
+
+### RPC 接口示例
+
+RPC 接口数据示例参考 [APIs](https://github.com/nervina-labs/cota-aggregator/blob/develop/README.md#apis)
