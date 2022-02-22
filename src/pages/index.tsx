@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import HomepageFeatures from '../components/HomepageFeatures';
 
 function HomepageHeader() {
@@ -27,11 +28,14 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
-  window.location.href = '/docs/about/overview';
+
   return (
     <Layout
       title={`欢迎访问 ${siteConfig.title}`}
       description="">
+      <BrowserOnly>
+        {() => window.location.href = '/docs/about/overview'}
+      </BrowserOnly>
       {/* <HomepageHeader /> */}
       <main>
         {/* <HomepageFeatures /> */}
