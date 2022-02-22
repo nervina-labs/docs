@@ -2,5 +2,11 @@
   "root": "build/",
   "routes": {
     "/**": "index.html"
+  },
+  "redirects": {
+    "/": {
+      "url": "/docs/about/overview",
+      "status": 302
+    }
   }
 }
