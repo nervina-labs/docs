@@ -27,13 +27,16 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
+  window.location.href = '/docs/about/overview';
   return (
     <Layout
       title={`欢迎访问 ${siteConfig.title}`}
       description="">
-      <HomepageHeader />
+      {/* <HomepageHeader /> */}
       <main>
-        <HomepageFeatures />
+        {/* <HomepageFeatures /> */}
+        If you are not redirected automatically, follow this
+        <a href="/docs/about/overview">link</a>.
       </main>
     </Layout>
   );
