@@ -7,7 +7,7 @@ label: CoTA
 
 ## JSONRPC 接口
 
-- Method: register_cota_cells
+### register_cota_cells
 
   - Params:
 
@@ -27,6 +27,6 @@ label: CoTA
     }
     ```
 
-### RPC 接口示例
+## RPC 接口示例
 
 RPC 接口数据示例参考 [APIs](https://github.com/nervina-labs/cota-registry-aggregator/blob/develop/README.md#apis)

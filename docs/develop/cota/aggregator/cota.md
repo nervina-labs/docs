@@ -5,9 +5,9 @@ label: CoTA
 
 > block_number 表示当前数据同步到的最新区块高度，建议以当 block_number 与 CKB 链上最新高度一致时返回的数据为准
 
-### JSONRPC 接口
+## JSONRPC 接口
 
-- Method: generate_define_cota_smt
+### generate_define_cota_smt
 
   - Params:
 
@@ -32,7 +32,7 @@ label: CoTA
     }
     ```
 
-- Method: generate_mint_cota_smt
+### generate_mint_cota_smt
 
   - Params:
     ```js
@@ -59,7 +59,7 @@ label: CoTA
     }
     ```
 
-- Method: generate_withdrawal_cota_smt
+### generate_withdrawal_cota_smt
 
   - Params
     ```json
@@ -83,7 +83,7 @@ label: CoTA
     }
     ```
 
-- Method: generate_claim_cota_smt
+### generate_claim_cota_smt
 
   - Params
 
@@ -109,7 +109,7 @@ label: CoTA
     }
     ```
 
-- Method: generate_update_cota_smt
+### generate_update_cota_smt
 
   - Params
     ```json
@@ -134,7 +134,7 @@ label: CoTA
     }
     ```
 
-- Method: generate_transfer_cota_smt
+### generate_transfer_cota_smt
 
   - Params
     ```json
@@ -174,7 +174,7 @@ label: CoTA
     to_lock_script:       Tom's lock script
     ```
 
-- Method: generate_claim_update_cota_smt
+### generate_claim_update_cota_smt
   - Params
       
       ```json
@@ -203,7 +203,7 @@ label: CoTA
       ```
         
 
-- Method: generate_transfer_update_cota_smt
+### generate_transfer_update_cota_smt
   - Params
       
       ```json
@@ -251,7 +251,7 @@ label: CoTA
       ```
 
 
-- Method: get_hold_cota_nft
+### get_hold_cota_nft
 
   - Params
     ```json
@@ -282,7 +282,7 @@ label: CoTA
     }
     ```
 
-- Method: get_withdraw_cota_nft
+### get_withdraw_cota_nft
 
   - Params
     ```json
@@ -313,7 +313,7 @@ label: CoTA
     }
     ```
 
-- Method: get_mint_cota_nft
+### get_mint_cota_nft
 
   - Params
     ```json
@@ -345,7 +345,7 @@ label: CoTA
     }
     ```
 
-- Method: is_claimed
+### is_claimed
 
   - Params
     ```json
@@ -363,7 +363,7 @@ label: CoTA
     }
     ```
 
-- Method: get_cota_nft_sender
+### get_cota_nft_sender
   - Params
     ```json
     {
@@ -380,6 +380,6 @@ label: CoTA
     }
     ```
 
-### RPC 接口示例
+## RPC 接口示例
 
 RPC 接口数据示例参考 [APIs](https://github.com/nervina-labs/cota-aggregator/blob/develop/README.md#apis)
