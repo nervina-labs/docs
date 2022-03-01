@@ -174,6 +174,83 @@ label: CoTA
     to_lock_script:       Tom's lock script
     ```
 
+- Method: generate_claim_update_cota_smt
+  - Params
+      
+      ```json
+      {
+        lock_script: hex_string_bytes,
+        withdrawal_lock_hash: hex_string_bytes32,
+        nfts: [
+          {
+            cota_id: hex_string_bytes20,
+            token_index: hex_string_bytes4,
+            state: hex_string_bytes1,
+            characteristic: hex_string_bytes20,
+          }
+        ]
+      }
+      ```
+      
+  - Response
+      
+      ```json
+      result: {
+        claim_update_smt_entry: hex_string_bytes,
+        smt_root_hash: hex_string_bytes32,
+        block_number: number
+      }
+      ```
+        
+
+- Method: generate_transfer_update_cota_smt
+  - Params
+      
+      ```json
+      {
+        lock_script: hex_string_bytes,
+        withdrawal_lock_hash: hex_string_bytes32,
+        transfer_out_point: hex_string_bytes24,
+        transfers: [
+          {
+            cota_id: hex_string_bytes20,
+            token_index: hex_string_bytes4,
+            to_lock_script: hex_string_bytes,
+            state: hex_string_bytes1,
+            characteristic: hex_string_bytes20,
+          }
+        ]
+      }
+      ```
+      
+  - Response
+      
+      ```json
+      result: {
+        transfer_update_smt_entry: hex_string_bytes,
+        smt_root_hash: hex_string_bytes32,
+        block_number: number
+      }
+      ```
+      
+  - Example
+      
+      An example as blew to explain the parameters of `generate_transfer_update_cota_smt` RPC:
+      
+      ```bash
+      Alice -- NFT A --> Bob -- NFT A --> Tom
+      ```
+      
+      Now Bob will transfer the NFT A to Tom, here the RPC parameters are: 
+      
+      ```bash
+      lock_script:          Bob's lock script
+      withdrawal_lock_hash: Alice's lock hash
+      transfer_out_point:   The out_point of Bob's CoTA live cell
+      to_lock_script:       Tom's lock script
+      ```
+
+
 - Method: get_hold_cota_nft
 
   - Params
