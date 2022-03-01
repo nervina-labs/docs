@@ -61,6 +61,7 @@ struct ClaimCotaNFTKey {
 vector ClaimCotaNFTKeyVec <ClaimCotaNFTKey>;
 
 vector ClaimCotaNFTValueVec <Byte32>;
+vector ClaimCotaNFTInfoVec <CotaNFTInfo>;
 ```
 
 为了区分 witness 数据结构属于哪种交易类型，同时方便签名器显示可视化数据，以便用户确认，合约将会以完整的 action 文案作为 witness 数据的一部分参与签名，故而链外构造交易时，需严格按照下方可视化数据格式，特定义如下数据格式：
@@ -74,6 +75,8 @@ match action_type {
   0x04 => claim                   // claim nft tx
   0x05 => update                  // update nft info
   0x06 => transfer                // transfer nft with one step(claim & withdraw)
+  0x07 => claim_udpate            // claim and update nft tx
+  0x08 => transfer_update         // transfer and update nft tx
 }
 ```
 
@@ -85,7 +88,7 @@ match action_type {
 // 则自动将 lock script 转化为 address
 // 为了方便合约验证，lock_script 以 molecule 序列化后的 bytes 形式存放于 witness 中
 // total 为大端 u32
-// 对于 0x01、0x02、0x03 和 0x06，合约只验证单个 cota_id + token_index 或者 lock_scirpt
+// 对于 0x01、0x02、0x03、0x06 和 0x08，合约只验证单个 cota_id + token_index 或者 lock_scirpt
 // 的情况，多个时不验证，其他情况合约都会验证
 action = match action_type {
   0x01 => ("Create a new NFT collection with %d edition", total)
@@ -94,6 +97,8 @@ action = match action_type {
   0x04 => ("Claim %d NFTs", count)
   0x05 => ("Update NFT information")
   0x06 => ("Transfer the NFT %s to %s", cota_id + token_index, molecule_encode(lock_script))
+  0x07 => ("Claim %d NFTs and update NFTs information", count)
+	0x08 => ("Transfer the NFT %s to %s and update the NFT information", cota_id + token_index, molecule_encode(lock_script))
 }
 ```
 
@@ -433,8 +438,8 @@ table TransferCotaNFTEntries {
 - sender.withdrawal + sender.smt_root + withdrawal_proof 三者验证 smt 通过
 - claim 的 keys/vaules 不在 input.smt 中（smt root 与 proof 验证）
 - claim 的 keys/values 在 output.smt 中（smt root 与 proof 验证）
-- withdrawal 的 keys/vaules 在 input.smt 中（smt root 与 proof 验证）
-- withdrawal 的 keys/values 不在 output.smt 中（smt root 与 proof 验证）
+- withdrawal 的 keys/vaules 不在 input.smt 中（smt root 与 proof 验证）
+- withdrawal 的 keys/values 在 output.smt 中（smt root 与 proof 验证）
 
 ### CoTA NFT 更新信息
 
@@ -476,9 +481,121 @@ table UpdateCotaNFTEntries {
 - hold_keys/hold_old_values 在 input.smt 中（smt root 与 proof 验证）
 - hold_keys/hold_new_vaules 在 output.smt 中（smt root 与 proof 验证）
 
+### CoTA NFT 转让之 claim 且更新 NFT 信息
+
+```
+cell_deps:
+	sender_cota_cell
+
+inputs:
+	receiver_cota_cell
+
+outputs:
+	receiver_cota_cell
+
+outputs_data:
+	version + smt_root
+
+witnesses:
+	witness_args.input_type = action_type + ClaimUpdateCotaNFTEntries
+```
+
+**witness 数据结构**
+
+```
+// transfer_update.mol
+import common;
+
+table ClaimUpdateCotaNFTEntries {
+	hold_keys: HoldCotaNFTKeyVec,
+  hold_values: HoldCotaNFTValueVec,
+  claim_keys: ClaimCotaNFTKeyVec,
+  claim_infos: ClaimCotaNFTInfoVec,
+  proof: Bytes,
+  withdrawal_proof: Bytes,   
+  action: Bytes,  
+}
+```
+
+合约规则：
+
+- `cell_deps[0] == sender_cota_cell`
+- `receiver.claim.out_point == sender.withdrawal.out_point`
+- `receiver.withdraw.out_point == receiver_cota_cell_inputs[0].out_point`
+- `claim.key.cota_id + claim.key.index == withdrawal.key.nft_info.cota_id + withdrawal.key.nft_info.index`
+- `sender.withdrawal.to_lock == recevier_lock_script`
+- `hold_smt_type == 0x8101`
+- `claim_smt_type == 0x8103`
+- `claim_info.nft_info.configure == hold_value.nft_info.configure`
+- 对应的 `keys: values`，长度必须相等
+- holds 与 claims 数据必须一一对应
+- action 必须与上述文档中定义的保持一致
+- `hold.state/characteristic` 满足 configure 配置，具体见 [mNFT 协议](https://talk.nervos.org/t/rfc-multi-purpose-nft-draft-spec/5434)
+- sender.withdrawal + sender.smt_root + withdrawal_proof 三者验证 smt 通过
+- claim 的 keys/vaules 不在 input.smt 中（smt root 与 proof 验证）
+- claim 的 keys/values(0xFF...FF) 在 output.smt 中（smt root 与 proof 验证）
+- hold 的 keys/vaules 不在 input.smt 中（smt root 与 proof 验证）
+- hold 的 keys/values 在 output.smt 中（smt root 与 proof 验证）
+
+### CoTA NFT 转让 transfer 且更新 NFT 信息
+
+```
+cell_deps:
+	sender_cota_cell
+
+inputs:
+	receiver_cota_cell
+
+outputs:
+	receiver_cota_cell
+
+outputs_data:
+		version + smt_root
+
+witnesses:
+	witness_args.input_type = action_type + TransferUpdateCotaNFTEntries
+```
+
+**witness 数据结构**
+
+```
+// transfer_update.mol
+import common;
+
+table TransferUpdateCotaNFTEntries {
+  claim_keys: ClaimCotaNFTKeyVec,
+  claim_infos: ClaimCotaNFTInfoVec,
+  withdrawal_keys: WithdrawalCotaNFTKeyVec,   
+  withdrawal_values: WithdrawalCotaNFTValueVec,
+  proof: Bytes,
+  withdrawal_proof: Bytes,   
+  action: Bytes,  
+}
+```
+
+合约规则：
+
+- `cell_deps[0] == sender_cota_cell`
+- `receiver.claim.out_point == sender.withdrawal.out_point`
+- `receiver.withdraw.out_point == receiver_cota_cell_inputs[0].out_point`
+- `claim.key.cota_id + claim.key.index == withdrawal.key.nft_info.cota_id + withdrawal.key.nft_info.index`
+- `sender.withdrawal.to_lock == recevier_lock_script`
+- `withdraw_smt_type == 0x8102`
+- `claim_smt_type == 0x8103`
+- 对应的 `keys: values`，长度必须相等
+- claims 与 withdrawals 数据必须一一对应
+- action 必须与上述文档中定义的保持一致
+- `withdrawal_value.nft_info.state/characteristic` 满足 configure 配置，具体见 [mNFT 协议](https://talk.nervos.org/t/rfc-multi-purpose-nft-draft-spec/5434)
+- `claim_info.nft_info.configure == withdrawal_value.nft_info.configure`
+- sender.withdrawal + sender.smt_root + withdrawal_proof 三者验证 smt 通过
+- claim 的 keys/vaules 不在 input.smt 中（smt root 与 proof 验证）
+- claim 的 keys/values(0xFF...FF) 在 output.smt 中（smt root 与 proof 验证）
+- withdrawal 的 keys/vaules 不在 input.smt 中（smt root 与 proof 验证）
+- withdrawal 的 keys/values 在 output.smt 中（smt root 与 proof 验证）
+
 ### CoTA cell 更新个人信息
 
-CoTA cell 更新个人信息在合约层面不做校验，其信息存放在 witness_args.output_type 中，具体格式参考 [CKB Transaction Metadata Standard](https://www.notion.so/CKB-Transaction-Metadata-Standard-ae5619dc762c4797a27f42854c4ab70f)
+CoTA cell 更新个人信息在合约层面不做校验，其信息存放在 witness_args.output_type 中，具体格式参考 [CKB Transaction Metadata Standard](https://talk.nervos.org/t/ckb-transaction-metadata-standard-proposal/6332)
 
 虽然合约不校验个人信息的详细内容和格式，但是对于这种交易场景，合约需要保证交易只能更新 witnesses 数据， cell data / lock script / type script 都不允许修改。
 
