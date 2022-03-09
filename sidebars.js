@@ -6,22 +6,16 @@ module.exports = {
       items: [
         "about/what-is-new",
         "about/overview",
-        "about/concepts",
-        // "about/solution"
+        "about/concepts"
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: '使用文档',
-    //   items: [
-    //     "usage/how-to-create",
-    //     "usage/how-to-distribute",
-    //     "usage/how-to-transfer",
-    //     "usage/addresses-collection",
-    //     "usage/redeem",
-    //     "usage/red-packet",
-    //   ],
-    // },
+    {
+      type: 'category',
+      label: '使用文档',
+      items: [
+        "about/solution"
+      ],
+    },
 
     {
       type: "category",
