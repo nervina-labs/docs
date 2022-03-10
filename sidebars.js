@@ -11,9 +11,10 @@ module.exports = {
     },
     {
       type: 'category',
-      label: '使用文档',
+      label: '使用者文档',
       items: [
-        "about/solution"
+        "usage/manual",
+        "about/solution",
       ],
     },
 
