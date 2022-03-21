@@ -6,22 +6,17 @@ module.exports = {
       items: [
         "about/what-is-new",
         "about/overview",
-        "about/concepts",
-        // "about/solution"
+        "about/concepts"
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: '使用文档',
-    //   items: [
-    //     "usage/how-to-create",
-    //     "usage/how-to-distribute",
-    //     "usage/how-to-transfer",
-    //     "usage/addresses-collection",
-    //     "usage/redeem",
-    //     "usage/red-packet",
-    //   ],
-    // },
+    {
+      type: 'category',
+      label: '使用者文档',
+      items: [
+        "usage/manual",
+        "about/solution",
+      ],
+    },
 
     {
       type: "category",
@@ -55,6 +50,7 @@ module.exports = {
             "develop/cota/design",
             "develop/cota/script-rule",
             "develop/cota/deployment",
+            "develop/cota/error-code",
             {
               type: "category",
               label: "Aggregator",
