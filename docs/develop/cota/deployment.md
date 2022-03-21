@@ -8,7 +8,7 @@ label: CoTA
 ### registry & cota cell-deps
 
 ```
-tx_hash: 0xeb8c99e9aaff64ffea5a97100fa9e6c23e59afe7ab9789cd882e3bb9a930c3ea
+tx_hash: 0x2dfcab7790f3cabffe5cb349546dac8918b409481828218cc162f9de5754116f
 index: 0x0
 dep_type: dep_group
 ```
@@ -44,7 +44,7 @@ dep_type: code
 ### registry & cota cell-deps
 
 ```
-tx_hash: 0xae2d5838730fc096e68fe839aea50d294493e10054513c10ca35e77e82e9243b
+tx_hash: 0x42a5b04df6ff0e2819ec6b814d33a028ed1593bc9e1cca463f679af555dce106
 index: 0x0
 dep_type: dep_group
 ```

@@ -27,6 +27,27 @@ label: CoTA
     }
     ```
 
+### check_registered_lock_hashes
+
+> If any lock hash of request parameter has not been registered, the result will be false.
+
+  - Params:
+
+    ```json
+    [
+      lock_hash: hex_string_bytes32
+    ]
+
+    ```
+
+  - Response
+    ```json
+    result: {
+      registered: bool,
+      block_number: number
+    }
+    ```
+
 ## RPC 接口示例
 
 RPC 接口数据示例参考 [APIs](https://github.com/nervina-labs/cota-registry-aggregator/blob/develop/README.md#apis)
