@@ -380,6 +380,23 @@ label: CoTA
     }
     ```
 
+### get_define_info
+  - Params
+    ```json
+    {
+      cota_id: hex_string_bytes20,
+    }
+    ```
+  - Response
+    ```json
+    result: {
+      total: number,
+      issued: number,
+      configure: hex_string_bytes1,
+      block_number: number
+    }
+    ```
+
 ## RPC 接口示例
 
 RPC 接口数据示例参考 [APIs](https://github.com/nervina-labs/cota-aggregator/blob/develop/README.md#apis)
