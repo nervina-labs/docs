@@ -68,13 +68,13 @@ struct ClaimCotaNFTInfo {
 vector ClaimCotaNFTInfoVec <ClaimCotaNFTInfo>;
 
 struct WithdrawalCotaNFTKeyV1 {
-	nft_id: CotaNFTId,
+  nft_id: CotaNFTId,
   out_point: OutPointSlice,
 }
 vector WithdrawalCotaNFTKeyV1Vec <WithdrawalCotaNFTKeyV1>;
 
 table WithdrawalCotaNFTValueV1 {
-	nft_info: CotaNFTInfo,
+  nft_info: CotaNFTInfo,
   to_lock: Bytes,
 }
 vector WithdrawalCotaNFTValueV1Vec <WithdrawalCotaNFTValueV1>;
@@ -114,7 +114,7 @@ action = match action_type {
   0x05 => ("Update NFT information")
   0x06 => ("Transfer the NFT %s to %s", cota_id + token_index, molecule_encode(lock_script))
   0x07 => ("Claim %d NFTs and update NFTs information", count)
-	0x08 => ("Transfer the NFT %s to %s and update the NFT information", cota_id + token_index, molecule_encode(lock_script))
+  0x08 => ("Transfer the NFT %s to %s and update the NFT information", cota_id + token_index, molecule_encode(lock_script))
 }
 ```
 
@@ -523,7 +523,7 @@ witnesses:
 import common;
 
 table ClaimUpdateCotaNFTV1Entries {
-	hold_keys: HoldCotaNFTKeyVec,
+  hold_keys: HoldCotaNFTKeyVec,
   hold_values: HoldCotaNFTValueVec,
   claim_keys: ClaimCotaNFTKeyVec,
   claim_infos: ClaimCotaNFTInfoVec,
@@ -567,7 +567,7 @@ outputs:
 	receiver_cota_cell
 
 outputs_data:
-		version + smt_root
+	version + smt_root
 
 witnesses:
 	witness_args.input_type = action_type + TransferUpdateCotaNFTV1Entries 
