@@ -14,7 +14,7 @@ label: CoTA
     ```json
 
     {
-      lock_hash: hex_string_bytes32
+      lock_script: hex_string_bytes,
       cota_id: hex_string_bytes20,
       total: hex_string_bytes4,
       issued: hex_string_bytes4,
@@ -37,7 +37,7 @@ label: CoTA
   - Params:
     ```js
     {
-      lock_hash: hex_string_bytes32,
+      lock_script: hex_string_bytes,
       cota_id: hex_string_bytes20,
       out_point: hex_string_bytes24,
       withdrawals: [
@@ -64,7 +64,7 @@ label: CoTA
   - Params
     ```json
     {
-        lock_hash: hex_string_bytes32,
+        lock_script: hex_string_bytes,
         out_point: hex_string_bytes24,
         withdrawals: [
         {
@@ -114,7 +114,7 @@ label: CoTA
   - Params
     ```json
     {
-      lock_hash: hex_string_bytes32,
+      lock_script: hex_string_bytes,
       nfts: [
         {
           cota_id: hex_string_bytes20,
@@ -140,7 +140,7 @@ label: CoTA
     ```json
     {
       lock_script: hex_string_bytes,
-      withdrawal_lock_hash: hex_string_bytes32,
+      withdrawal_lock_script: hex_string_bytes,
       transfer_out_point: hex_string_bytes24,
       transfers: [
         {
@@ -169,7 +169,7 @@ label: CoTA
     Now Bob will transfer the NFT A to Tom, here the RPC parameters are:
     ```
     lock_script:          Bob's lock script
-    withdrawal_lock_hash: Alice's lock hash
+    withdrawal_lock_script: Alice's lock script
     transfer_out_point:   The out_point of Bob's CoTA live cell
     to_lock_script:       Tom's lock script
     ```
@@ -180,7 +180,7 @@ label: CoTA
       ```json
       {
         lock_script: hex_string_bytes,
-        withdrawal_lock_hash: hex_string_bytes32,
+        withdrawal_lock_script: hex_string_bytes,
         nfts: [
           {
             cota_id: hex_string_bytes20,
@@ -209,7 +209,7 @@ label: CoTA
       ```json
       {
         lock_script: hex_string_bytes,
-        withdrawal_lock_hash: hex_string_bytes32,
+        withdrawal_lock_script: hex_string_bytes,
         transfer_out_point: hex_string_bytes24,
         transfers: [
           {
@@ -245,7 +245,7 @@ label: CoTA
       
       ```bash
       lock_script:          Bob's lock script
-      withdrawal_lock_hash: Alice's lock hash
+      withdrawal_lock_script: Alice's lock script
       transfer_out_point:   The out_point of Bob's CoTA live cell
       to_lock_script:       Tom's lock script
       ```
@@ -350,7 +350,7 @@ label: CoTA
   - Params
     ```json
     {
-      lock_hash: hex_string_bytes32,
+      lock_script: hex_string_bytes,
       cota_id: hex_string_bytes20,
       token_index: hex_string_bytes4,
     }
