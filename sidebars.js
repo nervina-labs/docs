@@ -47,6 +47,7 @@ module.exports = {
           label: "CoTA",
           items: [
             "develop/cota/overview",
+            "develop/cota/intro",
             "develop/cota/design",
             "develop/cota/script-rule",
             "develop/cota/deployment",
