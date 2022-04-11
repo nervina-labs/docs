@@ -59,14 +59,14 @@ Aggregator 依赖 `ckb-node / cota-nft-entries-syncer / ckb-indexer`，所以需
 
 1. 下载 cota-registry-aggregator [release](https://github.com/nervina-labs/cota-registry-aggregator/releases) 包，执行
 ```
-RUST_LOG=info DATABASE_URL=mysql://root:password@localhost:3306/cota_entries CKB_INDEXER=http://localhost:8116 ./cota-registry-aggregator
+RUST_LOG=info DATABASE_URL=mysql://root:password@localhost:3306/cota_entries CKB_INDEXER=http://localhost:8116 IS_MAINNET=false ./cota-registry-aggregator
 ```
 
 > cota-registry-aggregator 默认的访问地址为：http://localhost:3050
 
 2. 下载 cota-aggregator [release](https://github.com/nervina-labs/cota-aggregator/releases) 包，执行
 ```
-RUST_LOG=info DATABASE_URL=mysql://root:password@localhost:3306/cota_entries CKB_INDEXER=http://localhost:8116 ./cota-aggregator
+RUST_LOG=info DATABASE_URL=mysql://root:password@localhost:3306/cota_entries CKB_INDEXER=http://localhost:8116 IS_MAINNET=false ./cota-aggregator
 ```
 
 > cota-aggregator 默认的访问地址为：http://localhost:3030
