@@ -64,6 +64,13 @@ module.exports = {
             },
           ],
         },
+        {
+          type: "category",
+          label: "秘宝",
+          items: [
+            "develop/mibao/claim",
+          ],
+        },
       ],
     },
     // {
