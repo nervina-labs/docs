@@ -55,7 +55,7 @@ module.exports = {
             {
               type: "category",
               label: "Aggregator",
-              items: ["develop/cota/aggregator/cota", "develop/cota/aggregator/registry"],
+              items: ["develop/cota/aggregator/cota", "develop/cota/aggregator/registry", "develop/cota/aggregator/quick-deploy"],
             },
             {
               type: "category",
