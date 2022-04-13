@@ -90,7 +90,7 @@ label: CoTA
     ```json
     {
       lock_script: hex_string_bytes,
-      withdrawal_lock_hash: hex_string_bytes32,
+      withdrawal_lock_script: hex_string_bytes,
       claims: [
         {
           cota_id: hex_string_bytes20,
@@ -393,6 +393,9 @@ label: CoTA
       total: number,
       issued: number,
       configure: hex_string_bytes1,
+      name: string,
+      description: string,
+      image: string,
       block_number: number
     }
     ```
