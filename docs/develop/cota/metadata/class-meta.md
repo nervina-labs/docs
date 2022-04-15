@@ -47,9 +47,9 @@ properties:
     description: 指定模型 NFT Class 的模型文件, 模型文件存储在 IPFS, 此处填入文件 CID 或`文件目录 CID/{{id}}`, 为 `文件目录 CID/{{id}}` 时, 应用层需将实际 id 代入索引
     optional: true
 
-  schema:
+  characteristic:
     type: array
-    description: 针对 characteristic 的元数据, 由 [name, length] 的元组构成, 其中 name 为属性名称, length 为 characteristic 中的长度
+    description: 针对 NFT characteristic 的元数据, 由 [name, length] 的元组构成, 其中 name 为属性名称, length 为 NFT characteristic 中的长度
     optional: false
 
   properties:
