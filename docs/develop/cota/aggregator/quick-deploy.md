@@ -40,8 +40,8 @@ Aggregator 依赖 `ckb-node / cota-nft-entries-syncer / ckb-indexer`，所以需
     ```
   - Mainnet
     ```
-    insert into check_infos (check_type, block_number, block_hash, created_at, updated_at) values (0, 6726760, 'ae0c5cf348cf8414c779eba137e4034d80b9c791a4806ee47bc7a4cc016613df', now(), now());
-    insert into check_infos (check_type, block_number, block_hash, created_at, updated_at) values (1, 6726760, 'ae0c5cf348cf8414c779eba137e4034d80b9c791a4806ee47bc7a4cc016613df', now(), now());
+    insert into check_infos (check_type, block_number, block_hash, created_at, updated_at) values (0, 6558909, '6ad3c5479c343a2a160332b6dd3d502f2a8eab7f6fd69fc4c20b52bb99ff3dfa', now(), now());
+    insert into check_infos (check_type, block_number, block_hash, created_at, updated_at) values (1, 6558909, '6ad3c5479c343a2a160332b6dd3d502f2a8eab7f6fd69fc4c20b52bb99ff3dfa', now(), now());
     ```
 4. Clone [cota-nft-entries-syncer](https://github.com/nervina-labs/cota-nft-entries-syncer) 代码，更新 `configs/config.yaml` 文件，填入 MySQL 数据库访问地址等信息，其中 `mode = wild` 为快速同步数据，`mode = normal` 为每隔一秒定时同步数据
 5. 进到 `cota-nft-entries-syncer` 根目录，执行 `make && bin/syncer` 部署
