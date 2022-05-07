@@ -62,6 +62,11 @@ module.exports = {
               label: "Metadata",
               items: ["develop/cota/metadata/issuer-meta", "develop/cota/metadata/class-meta"],
             },
+            {
+              type: "category",
+              label: "开发指南",
+              items: ["develop/cota/gettingstart/getting-started", "develop/cota/gettingstart/cota-nft-life", "develop/cota/gettingstart/qa"],
+            },
           ],
         },
         {
