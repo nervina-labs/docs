@@ -95,3 +95,16 @@ const getMintCotaNft = await service.aggregator.getMintCotaNft({
 - `transfer` 操作已经包含了 `withdraw` & `claim` 两步操作
 - `withdraw` 操作参考代码：https://github.com/nervina-labs/cota-sdk-js/blob/develop/example/withdraw.ts
 - `claim` 操作参考代码：https://github.com/nervina-labs/cota-sdk-js/blob/develop/example/claim.ts
+
+## 5. cota-sdk 报错：Cota cell doesn't exist
+ 
+遇到这个报错可能有以下原因：
+
+- ckb-indexer 没有同步到最新区块高度（判定最新区块高度，可以查看 ckb-indexer 的日志，观察最新日志中的区块高度是否跟 ckb explorer 上的最新区块高度一致）
+- cota-sdk 与 cota-aggregator 不是同一个网络（主网和测试网），查看网络的方式：cota-sdk example isMainnet / cota-aggregator env is_mainnet
+
+## 6. aggregator 报错：RocksDB open error: IO error: While lock file: ./store.db/LOCK: Resource temporarily unavalilable
+
+遇到这个报错的原因和处理的方式：
+- 将 cota-aggregator 与 cota-registry-aggregator 隔离部署，至少放置在不同的目录下分开部署，否则两者的 rocks db 文件会冲突
+- 删掉根目录下的 store.db 文件，重新启动 aggregator
