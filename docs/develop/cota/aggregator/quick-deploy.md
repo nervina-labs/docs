@@ -57,6 +57,8 @@ Aggregator 依赖 `ckb-node / cota-nft-entries-syncer / ckb-indexer`，所以需
 
 ### cota-registry-aggregator && cota-aggregator
 
+<span style={{color: 'red', fontWeight: 'bold', fontSize: '17px'}}> ！！请不要将 cota-aggregator 和 cota-registry-aggregator 部署到同一个目录下，否则两者的 rocks db 文件会冲突！！</span>
+
 1. 下载 cota-registry-aggregator [release](https://github.com/nervina-labs/cota-registry-aggregator/releases) 包，执行
 ```
 RUST_LOG=info DATABASE_URL=mysql://root:password@localhost:3306/cota_entries CKB_INDEXER=http://localhost:8116 IS_MAINNET=false ./cota-registry-aggregator
