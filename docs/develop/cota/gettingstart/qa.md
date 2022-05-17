@@ -121,16 +121,23 @@ cota-nft-entries-syncer/internal/data/kv_pair.go:605 Error 1055: Expression #1 o
 
 可采用以下任一解决方案：
 
-方案一：
+**方案一：**
 
 在 mysql 中执行如下语句：
 ```
 SET @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'
 ```
 
-方案二：
+**方案二：**
 
-在 `my.cnf` 中添加:
+直接修改 MySQL 配置文件：
+
+- Windows 下 MySQL 的配置文件是 `my.ini`，一般会在安装目录的根目录
+- Linux 下 MySQL 的配置文件是 `my.cnf`，一般会放在 `/etc/my.cnf` 或 `/etc/mysql/my.cnf`
+
+具体详情可见官网介绍：https://dev.mysql.com/doc/refman/8.0/en/option-files.html
+
+在 MySQL 配置文件中添加:
 ```
 sql-mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 ```
