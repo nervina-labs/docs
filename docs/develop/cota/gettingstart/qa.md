@@ -91,10 +91,11 @@ const getMintCotaNft = await service.aggregator.getMintCotaNft({
   ```
 
 
-## 4. 关于 withdraw & claim
-- `transfer` 操作已经包含了 `withdraw` & `claim` 两步操作
-- `withdraw` 操作参考代码：https://github.com/nervina-labs/cota-sdk-js/blob/develop/example/withdraw.ts
+## 4. 关于 claim & withdraw
+- `transfer` 操作已经包含了 `claim` & `withdraw` 两步操作
 - `claim` 操作参考代码：https://github.com/nervina-labs/cota-sdk-js/blob/develop/example/claim.ts
+- `withdraw` 操作参考代码：https://github.com/nervina-labs/cota-sdk-js/blob/develop/example/withdraw.ts
+
 
 ## 5. cota-sdk 报错：Cota cell doesn't exist
  
@@ -108,3 +109,35 @@ const getMintCotaNft = await service.aggregator.getMintCotaNft({
 遇到这个报错的原因和处理的方式：
 - 将 cota-aggregator 与 cota-registry-aggregator 隔离部署，至少放置在不同的目录下分开部署，否则两者的 rocks db 文件会冲突
 - 删掉根目录下的 store.db 文件，重新启动 aggregator
+
+
+## 7. syncer 报错：Error 1055: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column
+
+例如遇到报错如下：
+```
+cota-nft-entries-syncer/internal/data/kv_pair.go:605 Error 1055: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'cota_entries.issuer_info_versions.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[0.729ms] [rows:0] SELECT * FROM issuer_info_versions WHERE block_number = 7148240 and action_type = 1 GROUP BY lock_hash ORDER BY tx_index
+```
+
+可采用以下任一解决方案：
+
+**方案一：**
+
+在 mysql 中执行如下语句：
+```
+SET @@global.sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'
+```
+
+**方案二：**
+
+直接修改 MySQL 配置文件：
+
+- Windows 下 MySQL 的配置文件是 `my.ini`，一般会在安装目录的根目录
+- Linux 下 MySQL 的配置文件是 `my.cnf`，一般会放在 `/etc/my.cnf` 或 `/etc/mysql/my.cnf`
+
+具体详情可见官网介绍：https://dev.mysql.com/doc/refman/8.0/en/option-files.html
+
+在 MySQL 配置文件中添加:
+```
+sql-mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+```
