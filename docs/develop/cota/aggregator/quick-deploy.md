@@ -61,7 +61,32 @@ Aggregator 依赖 `ckb-node / cota-nft-entries-syncer / ckb-indexer`，所以需
 
 建议这两个 aggregator 采用 Docker 部署，Dockerfile 分别见相应的项目根目录
 
-以 cota-aggregator 为例： 
+以 [cota-aggregator](https://github.com/nervina-labs/cota-aggregator) 为例： 
+
+配置 Dockerfile 中的 [ENV](https://github.com/nervina-labs/cota-aggregator/blob/develop/Dockerfile#L30-L36)
+
+```
+# 日志级别
+ENV RUST_LOG info
+
+# mysql 数据库访问 url
+ENV DATABASE_URL mysql://root:password@localhost:3306/db_name
+
+# mysql 线程池最大连接数
+ENV MAX_POOL 20
+
+# cota-aggregator 线程数量
+ENV THREADS 3
+
+# ckb-indexer 访问 url
+ENV CKB_INDEXER http://localhost:8116
+
+# 是否是主网，false 表示 Testnet，true 表示 Mainnet
+ENV IS_MAINNET false
+
+# Sentry 监控地址，如果不需要可以忽略
+ENV SENTRY_DSN https://key@sentry.io/1234
+```
 
 ```
 # Build cota-aggregator images from the Dockerfile and run cota-aggregator via docker
