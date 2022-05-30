@@ -91,7 +91,7 @@ ENV SENTRY_DSN https://key@sentry.io/1234
 ```
 # Build cota-aggregator images from the Dockerfile and run cota-aggregator via docker
 docker build -t cota-aggregator .
-docker run -d -p 3030:3030 cota-aggregator:latest
+docker run -d -p 3030:3030 -v "$(pwd)":/app/store.db cota-aggregator:latest
 ```
 
 > cota-aggregator 默认的访问地址为：http://localhost:3030
