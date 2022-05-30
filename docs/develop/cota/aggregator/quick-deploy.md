@@ -59,18 +59,41 @@ Aggregator 依赖 `ckb-node / cota-nft-entries-syncer / ckb-indexer`，所以需
 
 <span style={{color: 'red', fontWeight: 'bold', fontSize: '17px'}}> ！！请不要将 cota-aggregator 和 cota-registry-aggregator 部署到同一个目录下，否则两者的 rocks db 文件会冲突！！</span>
 
-1. 下载 cota-registry-aggregator [release](https://github.com/nervina-labs/cota-registry-aggregator/releases) 包，执行
+建议这两个 aggregator 采用 Docker 部署，Dockerfile 分别见相应的项目根目录
+
+以 [cota-aggregator](https://github.com/nervina-labs/cota-aggregator) 为例： 
+
+配置 Dockerfile 中的 [ENV](https://github.com/nervina-labs/cota-aggregator/blob/develop/Dockerfile#L30-L36)
+
 ```
-RUST_LOG=info DATABASE_URL=mysql://root:password@localhost:3306/cota_entries CKB_INDEXER=http://localhost:8116 IS_MAINNET=false ./cota-registry-aggregator
+# 日志级别
+ENV RUST_LOG info
+
+# mysql 数据库访问 url
+ENV DATABASE_URL mysql://root:password@localhost:3306/db_name
+
+# mysql 线程池最大连接数
+ENV MAX_POOL 20
+
+# cota-aggregator 线程数量
+ENV THREADS 3
+
+# ckb-indexer 访问 url
+ENV CKB_INDEXER http://localhost:8116
+
+# 是否是主网，false 表示 Testnet，true 表示 Mainnet
+ENV IS_MAINNET false
+
+# Sentry 监控地址，如果不需要可以忽略
+ENV SENTRY_DSN https://key@sentry.io/1234
 ```
 
-> cota-registry-aggregator 默认的访问地址为：http://localhost:3050
-
-2. 下载 cota-aggregator [release](https://github.com/nervina-labs/cota-aggregator/releases) 包，执行
 ```
-RUST_LOG=info DATABASE_URL=mysql://root:password@localhost:3306/cota_entries CKB_INDEXER=http://localhost:8116 IS_MAINNET=false ./cota-aggregator
+# Build cota-aggregator images from the Dockerfile and run cota-aggregator via docker
+docker build -t cota-aggregator .
+docker run -d -p 3030:3030 -v "$(pwd)":/app/store.db cota-aggregator:latest
 ```
 
 > cota-aggregator 默认的访问地址为：http://localhost:3030
 
-> 如果你熟悉 Docker，也可以使用 Docker 部署 Aggregator，详情参考 Dockerfile
+> cota-registry-aggregator 默认的访问地址为：http://localhost:3050
