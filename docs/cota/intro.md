@@ -39,7 +39,7 @@ Aggregator 就是这样的服务，同样的注册过程也是更新和验证默
 
 ### 合约部署信息
 
-目前 CoTA 合约已经部署到测试网和主网，可以参考具体的[部署信息](https://developer.mibao.net/docs/develop/cota/deployment)，如果你对智能合约规则和原理感兴趣，也可以参考 [CoTA 合约规则](https://developer.mibao.net/docs/develop/cota/script-rule)
+目前 CoTA 合约已经部署到测试网和主网，可以参考具体的[部署信息](https://developer.mibao.net/docs/cota/deployment)，如果你对智能合约规则和原理感兴趣，也可以参考 [CoTA 合约规则](https://developer.mibao.net/docs/cota/script-rule)
 
 ### Aggregator
 

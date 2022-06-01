@@ -72,7 +72,7 @@ const config = {
               },
               {
                 label: "English",
-                to: "docs/faq",
+                to: "docs/about/overview",
               },
             ],
           },
