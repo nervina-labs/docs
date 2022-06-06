@@ -41,13 +41,6 @@ module.exports = {
           label: "CoTA 开发指南",
           items: ["blog/getting-start/getting-started", "blog/getting-start/cota-nft-life", "blog/getting-start/qa"],
         },
-        {
-          type: "category",
-          label: "秘宝",
-          items: [
-            "develop/mibao/claim",
-          ],
-        },
       ],
     },
   ],
