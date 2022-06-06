@@ -29,7 +29,7 @@ module.exports = {
     {
       type: "category",
       label: "CoTA",
-      items: ["cota/overview", "cota/aggregator", "cota/quick-deploy", "cota/error-code"],
+      items: ["cota/overview", "cota/aggregator", "cota/quick-deploy", "cota/sdk", "cota/error-code"],
     },
     {
       type: "category",
