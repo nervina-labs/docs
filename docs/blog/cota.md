@@ -5,7 +5,7 @@ label: CoTA Intro
 
 ## 什么是 CoTA
 
-CoTA 全称 Compact Token Aggregator Standard，基于 Nervos CKB Cell 模型设计的 Token 管理协议。简单来说，CoTA 就是给每个用户维护一颗专属的默克尔树（SMT），树上的叶子节点代表了 NFT 资产的数据和状态，NFT 的转让和信息更新只是叶子节点数据的更新，并不触发 Cell 所有权的变更，有点像每个用户都有一个微型的账本，记账的过程就是叶子节点更新的过程。
+[CoTA](https://talk.nervos.org/t/rfc-cota-a-compact-token-aggregator-standard-for-extremely-low-cost-nfts-and-fts/6338) 全称 Compact Token Aggregator Standard，基于 Nervos CKB Cell 模型设计的 Token 管理协议。简单来说，CoTA 就是给每个用户维护一颗专属的默克尔树（SMT），树上的叶子节点代表了 NFT 资产的数据和状态，NFT 的转让和信息更新只是叶子节点数据的更新，并不触发 Cell 所有权的变更，有点像每个用户都有一个微型的账本，记账的过程就是叶子节点更新的过程。
 
 CoTA Cell 维护的微型账本类似于以太坊的账户模型，但是所不同的是 CoTA Cell 本身的所有权由用户的 lock 决定，关于 NFT 的任何操作都必须由用户签名解锁 lock 才能进行，而且用户可以同时给多个不同的用户转让多个不同的 NFT。
 
@@ -36,10 +36,6 @@ Aggregator 就是这样的服务，同样的注册过程也是更新和验证默
 对于一个发行方来说，他可能希望能看到所有的发行记录，而对于持有人来说，他可能希望看到他所拥有的 NFT，不管这个 NFT 是否已收下（claim）等等，为了满足这部分需求，aggregator 除了帮助交易构造者生成密码学证明，还提供了更多的数据查询 RPC，例如根据地址查询所拥有的 NFT 等，更多的 RPC 详情请参考 [Aggregator RPC APIs](https://github.com/nervina-labs/cota-aggregator#apis)
 
 ## 如何快速上手 CoTA NFT 开发
-
-### 合约部署信息
-
-目前 CoTA 合约已经部署到测试网和主网，可以参考具体的[部署信息](https://developer.mibao.net/docs/develop/cota/deployment)，如果你对智能合约规则和原理感兴趣，也可以参考 [CoTA 合约规则](https://developer.mibao.net/docs/develop/cota/script-rule)
 
 ### Aggregator
 
