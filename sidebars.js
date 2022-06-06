@@ -2,72 +2,44 @@ module.exports = {
   docs: [
     {
       type: "category",
-      label: "介绍",
-      items: [
-        "about/what-is-new",
-        "about/overview",
-        "about/concepts"
-      ],
-    },
-    {
-      type: 'category',
-      label: '使用者文档',
-      items: [
-        "usage/manual",
-        "about/solution",
-      ],
+      label: "秘宝",
+      items: ["about/what-is-new", "about/overview", "about/concepts", "usage/manual", "about/solution", "about/claim"],
     },
 
     {
       type: "category",
-      label: "开发者文档",
+      label: "OpenAPI",
       items: [
-        "develop/concepts",
+        "openapi/concepts",
+        "openapi/prepare",
+        "openapi/signature",
         {
           type: "category",
-          label: "OpenAPI",
+          label: "最佳实践",
           items: [
-            "develop/openapi/prepare",
-            "develop/openapi/signature",
-            {
-              type: "category",
-              label: "最佳实践",
-              items: [
-                "develop/openapi/best-practice/token-class",
-                "develop/openapi/best-practice/token",
-                "develop/openapi/best-practice/holder",
-                "develop/openapi/best-practice/transaction",
-                "develop/openapi/best-practice/multi-issuers",
-              ],
-            },
+            "openapi/best-practice/token-class",
+            "openapi/best-practice/token",
+            "openapi/best-practice/holder",
+            "openapi/best-practice/transaction",
+            "openapi/best-practice/multi-issuers",
           ],
         },
+      ],
+    },
+    {
+      type: "category",
+      label: "CoTA",
+      items: ["cota/overview", "cota/aggregator", "cota/quick-deploy", "cota/sdk", "cota/error-code"],
+    },
+    {
+      type: "category",
+      label: "Blog",
+      items: [
+        "blog/cota",
         {
           type: "category",
-          label: "CoTA",
-          items: [
-            "develop/cota/overview",
-            "develop/cota/intro",
-            "develop/cota/design",
-            "develop/cota/script-rule",
-            "develop/cota/deployment",
-            "develop/cota/error-code",
-            {
-              type: "category",
-              label: "Aggregator",
-              items: ["develop/cota/aggregator/cota", "develop/cota/aggregator/registry", "develop/cota/aggregator/quick-deploy"],
-            },
-            {
-              type: "category",
-              label: "Metadata",
-              items: ["develop/cota/metadata/issuer-meta", "develop/cota/metadata/class-meta"],
-            },
-            {
-              type: "category",
-              label: "开发指南",
-              items: ["develop/cota/gettingstart/getting-started", "develop/cota/gettingstart/cota-nft-life", "develop/cota/gettingstart/qa"],
-            },
-          ],
+          label: "CoTA 开发指南",
+          items: ["blog/getting-start/getting-started", "blog/getting-start/cota-nft-life", "blog/getting-start/qa"],
         },
         {
           type: "category",
@@ -78,24 +50,5 @@ module.exports = {
         },
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: '深入理解 NFT 合约',
-    //   items: [
-    //     "contract/cota-nft",
-    //     "contract/m-nft",
-    //   ],
-    // },
-    // "faq"
-
-    // {
-    //   type: 'category',
-    //   label: 'Contract',
-    //   items: [
-    //     "docs_en/contract/cota-nft",
-    //     "docs_en/contract/m-nft",
-    //   ],
-    // },
-    // "docs_en/faq"
   ],
 };
