@@ -29,27 +29,17 @@ module.exports = {
     {
       type: "category",
       label: "CoTA",
+      items: ["cota/overview", "cota/aggregator", "cota/quick-deploy", "cota/error-code"],
+    },
+    {
+      type: "category",
+      label: "Blog",
       items: [
-        "cota/overview",
-        "cota/intro",
-        "cota/design",
-        "cota/script-rule",
-        "cota/deployment",
-        "cota/error-code",
+        "blog/cota",
         {
           type: "category",
-          label: "Aggregator",
-          items: ["cota/aggregator/cota", "cota/aggregator/registry", "cota/aggregator/quick-deploy"],
-        },
-        {
-          type: "category",
-          label: "Metadata",
-          items: ["cota/metadata/issuer-meta", "cota/metadata/class-meta"],
-        },
-        {
-          type: "category",
-          label: "开发指南",
-          items: ["cota/gettingstart/getting-started", "cota/gettingstart/cota-nft-life", "cota/gettingstart/qa"],
+          label: "CoTA 开发指南",
+          items: ["blog/getting-start/getting-started", "blog/getting-start/cota-nft-life", "blog/getting-start/qa"],
         },
       ],
     },

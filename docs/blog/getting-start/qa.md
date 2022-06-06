@@ -22,7 +22,7 @@ let { rawTx, cotaId } = await generateDefineCotaTx(service, defineLock, issueAmo
 
 ### 3.1 查询发行方已分发过的所有 CoTA NFT
 
-相关 JSONRPC 接口： [get_mint_cota_nft](../aggregator/cota#get_mint_cota_nft)
+相关 JSONRPC 接口： [get_mint_cota_nft](https://github.com/nervina-labs/cota-aggregator#get_mint_cota_nft)
 
 相关代码参考：
 
@@ -49,7 +49,7 @@ const getMintCotaNft = await service.aggregator.getMintCotaNft({
   - 可以直接 `transfer` 给别人
   - 也可以先 `claim` 后 `withdraw` 给别人，最终效果同 `transfer`
 
-- 相关 JSONRPC 接口： [get_withdraw_cota_nft](../aggregator/cota#get_withdraw_cota_nft)
+- 相关 JSONRPC 接口： [get_withdraw_cota_nft](https://github.com/nervina-labs/cota-aggregator#get_withdrawal_cota_nft)
 
 - 相关代码参考：
   ```
@@ -66,7 +66,7 @@ const getMintCotaNft = await service.aggregator.getMintCotaNft({
 - 接收方在对 `withdraw` 状态的 CoTA NFT 进行了 `claim` 操作后，会变成 `hold` 状态，此时通过 RPC `is_claimed` 检查该 NFT 会返回为 `true`
 
 - 检查某 NFT 是否已被 claim：
-  - 相关 JSONRPC 接口： [is_claimed](../aggregator/cota#is_claimed)
+  - 相关 JSONRPC 接口： [is_claimed](https://github.com/nervina-labs/cota-aggregator#is_claimed)
   - 相关代码参考：
     ```
     const isClaimed = await service.aggregator.isClaimed({
@@ -84,7 +84,7 @@ const getMintCotaNft = await service.aggregator.getMintCotaNft({
 - 相关操作：
   - 可以直接 `withdraw` 给别人
   - 不能进行 `transfer` 操作
-- 相关 JSONRPC 接口： [get_hold_cota_nft](../aggregator/cota#get_hold_cota_nft)
+- 相关 JSONRPC 接口： [get_hold_cota_nft](https://github.com/nervina-labs/cota-aggregator#get_hold_cota_nft)
 
 - 相关代码参考：
   ```
