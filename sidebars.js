@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       type: "link",
-      label: "CoTA Docs",
+      label: "CoTA",
       href: "https://cotadev.io",
     },
     {

@@ -16,11 +16,11 @@ const config = {
   organizationName: "nervina-labs", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   i18n: {
-    defaultLocale: "zh",
-    locales: ["zh"],
+    defaultLocale: "en",
+    locales: ["en"],
     localeConfigs: {
       // You can omit a locale (e.g. fr) if you don't need to override the defaults
-      zh: {},
+      en: {},
     },
   },
   presets: [
