@@ -9,7 +9,7 @@ label: CoTA
 
 ### 前置环境准备
 
-在开始进行开发前，需要有一些前置环境准备工作，请先确保您已部署了 **[Aggregator 相关服务](../../cota/quick-deploy)**
+在开始进行开发前，需要有一些前置环境准备工作，请先确保您已部署了 **[Aggregator 相关服务](https://www.cotadev.io/docs/guides/aggregator)**
 
 注：在使用 Testnet 来进行开发和测试时，除了可以自己部署 Aggregator 服务以外，也可以使用以下社区提供的公共 rpc 服务来进行开发和测试：
 

@@ -27,9 +27,9 @@ module.exports = {
       ],
     },
     {
-      type: "category",
+      type: "link",
       label: "CoTA",
-      items: ["cota/overview", "cota/aggregator", "cota/quick-deploy", "cota/sdk", "cota/error-code"],
+      href: "https://cotadev.io",
     },
     {
       type: "category",
