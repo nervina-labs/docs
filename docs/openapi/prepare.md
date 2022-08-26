@@ -11,10 +11,10 @@ Open API 用户需要首先在秘宝创作者平台通过邮箱注册帐号，�
 
 - 主网：
 
-  - 秘宝创作者平台： https://v.mibao.net/
+  - 秘宝创作者平台： https://nftbox.me/
   - Open API 请求地址： https://goldenlegend.nervina.cn/
-  - 秘宝： https://mibao.net/explore/
-  - 秘宝浏览器： https://explorer.mibao.net/
+  - 秘宝： https://token.city/explore/
+  - 秘宝浏览器： https://explorer.token.city/
 
 - 测试网：
 

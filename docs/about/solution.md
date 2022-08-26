@@ -12,7 +12,7 @@ label: solution
 
 操作流程：
 
-1. 进入[秘宝创作者账户网页](https://v.mibao.net/zh/register)
+1. 进入[秘宝创作者账户网页](https://nftbox.me/zh/register)
 
 2. 输入**邮箱**，点击**发送验证码**
 
@@ -27,7 +27,7 @@ label: solution
 
 操作流程：
 
-1. 打开[秘宝创作者账户网页](https://v.mibao.net/zh/login)
+1. 打开[秘宝创作者账户网页](https://nftbox.me/zh/login)
 
 2. 输入**邮箱**，输入**密码**，点击**登录**
 

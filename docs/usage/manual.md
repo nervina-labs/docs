@@ -11,7 +11,7 @@ label: solution
 	
 操作流程：
 
-1. 打开[秘宝账户](https://mibao.net/login),在登录页勾选协议，点击**连接身份管理器**
+1. 打开[秘宝账户](https://token.city/login),在登录页勾选协议，点击**连接身份管理器**
 
 2. 选择**连接Flashsigner**
 
@@ -36,7 +36,7 @@ label: solution
 	
 操作流程：
 	
-1. 打开[秘宝账户](https://mibao.net/login)
+1. 打开[秘宝账户](https://token.city/login)
 
 2. 在登录页勾选协议，点击**连接身份管理器**
 	
@@ -51,7 +51,7 @@ label: solution
 
 功能说明：您可以使用秘宝领取码领取数字藏品，如果您未注册或登录秘宝账户，需要先完成注册和登录
 	
-操作流程：进入[秘宝领取页面](https://mibao.net/claim)，输入领取码，点击按钮进行验证，点击**确认领取**
+操作流程：进入[秘宝领取页面](https://token.city/claim)，输入领取码，点击按钮进行验证，点击**确认领取**
 
 ![领取](./img/claim.jpeg)
 
@@ -62,7 +62,7 @@ label: solution
 	
 操作流程：
 		
-1. 进入[秘宝账户](https://mibao.net/home)，找到并点击要转让的秘宝，点击**转让**
+1. 进入[秘宝账户](https://token.city/home)，找到并点击要转让的秘宝，点击**转让**
 		
 2. 输入接收方的地址，点击**转让**
 		
@@ -80,7 +80,7 @@ label: solution
 	
 操作流程：
 
-1. 进入[秘宝兑换中心页面](https://mibao.net/redeem)，点击**查看奖品**，即可查看活动奖品的详细信息
+1. 进入[秘宝兑换中心页面](https://token.city/redeem)，点击**查看奖品**，即可查看活动奖品的详细信息
 
 2. 点击**可兑换**，如果您持有符合活动兑换条件的秘宝，可以看到对应的活动
 
@@ -95,7 +95,7 @@ label: solution
 	
 操作流程：
 		
-1. 打开[秘宝红包页面](https://mibao.net/red-envelope)，点击**普通红包**或**谜语红包**，进入红包编辑页面
+1. 打开[秘宝红包页面](https://token.city/red-envelope)，点击**普通红包**或**谜语红包**，进入红包编辑页面
 		
 2. 选择要塞进红包的秘宝，点击确定
 		
