@@ -21,7 +21,7 @@ label: 秘宝
 例如自定义领取页面 URL 可表示为：
 
 ```bash
-https://mibao.net/claim?title=青石幻城&image=xxx.jpg&name=数字藏品&connect=1
+https://token.city/claim?title=青石幻城&image=xxx.jpg&name=数字藏品&connect=1
 ```
 
 **为了避免生成 URL 链接的含有特殊字符（如空格）等问题，建议使用代码生成 URL：**
@@ -37,7 +37,7 @@ https://mibao.net/claim?title=青石幻城&image=xxx.jpg&name=数字藏品&conne
 
 ```js
 const generateClaimURL = ({name, connect, image, title}) => {
-  const url = new URL("https://mibao.net/claim");
+  const url = new URL("https://token.city/claim");
   if (name) url.searchParams.append("name", name);
   if (connect) url.searchParams.append("connect", connect);
   if (image) url.searchParams.append("image", image);

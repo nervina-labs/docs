@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "秘宝文档中心",
   tagline: "秘宝——",
-  url: "https://open.mibao.net",
+  url: "https://open.token.city",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
